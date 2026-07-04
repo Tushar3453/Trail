@@ -3,6 +3,9 @@ const RESPONSE_STATUS = {
     ERROR: -1,
 }
 
+const SALT_ROUNDS = 10;
+
 module.exports = {
-    RESPONSE_STATUS
+    RESPONSE_STATUS,
+    SALT_ROUNDS
 };
