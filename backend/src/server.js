@@ -1,20 +1,19 @@
-const express = require("express");
-require("dotenv").config();
-const connectDB = require("./config/db");
+const express = require('express');
+require('dotenv').config();
+const connectDB = require('./config/db');
 connectDB();
 
-const {authRoutes,userRoutes}=require("./routes");
+const { authRoutes, userRoutes } = require('./routes');
 
 const app = express();
 
 app.use(express.json());
 
-app.use("/api/auth",authRoutes);
-app.use("/api/user",userRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/user', userRoutes);
 
-
-app.get("/", (req, res) => {
-  res.send("Trail API running");
+app.get('/', (req, res) => {
+  res.send('Trail API running');
 });
 
 const PORT = process.env.PORT || 5000;
