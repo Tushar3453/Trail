@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../../middlewares/auth');
+const controller = require('../../modules/user/controller');
 
-router.get('/profile', (request, response) => {
-  response.send('Profile Route');
-});
+router.post('/profile', auth, controller.getUserDetails);
 
 module.exports = router;

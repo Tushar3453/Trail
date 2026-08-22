@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
-
+const AppError = require('../../utils/AppError');
+const constants = require('./constants');
+const { HTTP_STATUS } = require('../../constants/status');
 const generateToken = (userId) => {
   return jwt.sign(
     { userId },
@@ -16,7 +18,7 @@ const verifyToken = (token) => {
   }
   catch (error) {
     console.log(error);
-    throw new Error('Invalid token');
+    throw new AppError(constants.INVALID_TOKEN, HTTP_STATUS.UNAUTHORIZED);
   }
 };
 
